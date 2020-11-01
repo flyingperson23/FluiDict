@@ -9,9 +9,12 @@ public class ConfigHolder {
     @Config.Comment("Items to show when fluid is hovered over")
     public static HoverText hoverText = new HoverText();
 
-    @Config.Comment("Fluids to hide\nPut in the registry name of the fluid you want to hide\ni.e. 'water' or 'lava' (without the quotes)")
+    @Config.Comment("Should the fluid list below act as a whitelist? true for whitelist, false for blacklist")
+    public static boolean isWhitelist = false;
+
+    @Config.Comment("Fluids to hide/show\nPut in the registry name of the fluid you want to hide/show\ni.e. 'water' or 'lava' (without the quotes)")
     @Config.RequiresMcRestart
-    public static String[] fluidsToHide = new String[0];
+    public static String[] fluidList = new String[0];
 
     public static class HoverText {
         @Config.Comment("Should placeability be shown?")

@@ -49,7 +49,7 @@ public class FluidEntry {
     }
     
     public static ArrayList<FluidEntry> getAllFluids() {
-        return FluidRegistry.getRegisteredFluids().values().stream().filter(fluid -> Arrays.stream(ConfigHolder.fluidsToHide).noneMatch(e -> fluid.getName().equals(e))).map(FluidEntry::new).collect(Collectors.toCollection(ArrayList::new));
+        return FluidRegistry.getRegisteredFluids().values().stream().filter(fluid -> Arrays.stream(ConfigHolder.fluidList).anyMatch(e -> fluid.getName().equals(e)) == ConfigHolder.isWhitelist).map(FluidEntry::new).collect(Collectors.toCollection(ArrayList::new));
     }
     
     public ArrayList<String> getTooltip() {
